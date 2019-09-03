@@ -13,7 +13,7 @@ import {
   Typography
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import logo from '../../icons/UVV/logouvv.svg';
+//import logo from '../../icons/UVV/logouvv.svg';
 
 const schema = {
   email: {
@@ -85,6 +85,11 @@ const useStyles = makeStyles(theme => ({
     paddingRight: theme.spacing(2)
   },
   logoImage: {
+    flexGrow: 5,
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    alignItems: 'center',
     marginLeft: theme.spacing(4)
   },
   contentBody: {
@@ -227,7 +232,9 @@ const SignIn = props => {
                 className={classes.form}
                 onSubmit={handleSignIn}
               >
-                <img src={logo} />
+                <div className={classes.logoImage}>
+                  {/*  <img src={logo} /> */}
+                </div>
                 <Typography
                   className={classes.title}
                   variant="h2"
@@ -245,13 +252,13 @@ const SignIn = props => {
                   error={hasError('email')}
                   fullWidth
                   helperText={
-                    hasError('email') ? 'formState.errors.email[0] ': null
+                    hasError('email') ? 'formState.errors.email[0] ' : null
                   }
                   label="Matrícula"
                   name="email"
                   onChange={handleChange}
                   type="text"
-                  value={formState.values.email|| ''}
+                  value={formState.values.email || ''}
                   variant="outlined"
                 />
                 <TextField

@@ -1,1 +1,1 @@
-export { default } from './CadastroProfessor';
+export { default } from './AvaliarProcedimentoAluno';

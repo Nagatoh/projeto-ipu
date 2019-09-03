@@ -1,26 +1,13 @@
-import React, { useState } from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Button, Card, CardActions, CardContent, Checkbox, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import {
-  Card,
-  CardActions,
-  CardContent,
-  Avatar,
-  Checkbox,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-  Typography,
-  TablePagination,
-  Button
-} from '@material-ui/core';
+import clsx from 'clsx';
+import moment from 'moment';
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
-import { getInitials } from 'helpers';
+
+
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -118,10 +105,11 @@ const UsersTable = props => {
                       onChange={handleSelectAll}
                     />
                   </TableCell>
-                  <TableCell>Nome</TableCell>
-                  <TableCell>Turma</TableCell>
+                  <TableCell>Paciente</TableCell>
+                  <TableCell>procedimento</TableCell>
                   <TableCell>Matéria</TableCell>
-                  <TableCell>Avaliar Aluno</TableCell>
+                  <TableCell>Criado em</TableCell>
+                  <TableCell>Visualizar</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -140,21 +128,10 @@ const UsersTable = props => {
                         value="true"
                       />
                     </TableCell>
-                    <TableCell>
-                      <div className={classes.nameContainer}>
-                        <Avatar
-                          className={classes.avatar}
-                          src={user.avatarUrl}
-                        >
-                          {getInitials(user.name)}
-                        </Avatar>
-                        <Typography variant="body1">{user.name}</Typography>
-                      </div>
-                    </TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>
-                      {user.address.city}
-                    </TableCell>
+                    <TableCell>{user.paciente}</TableCell>
+                    <TableCell>{user.procedimento}</TableCell>
+                    <TableCell>{user.materia}</TableCell>
+                    <TableCell>{moment(user.createdAt).format('DD/MM/YYYY')}</TableCell>
                     <TableCell>
                       <Button
                         className={classes.ButtonLinkTable}
@@ -165,7 +142,7 @@ const UsersTable = props => {
                         variant="contained"
                       >
                         <a
-                          href="/avaliar-procedimento-aluno"
+                          href="/detalhes-procedimento"
                           style={{ color: 'white' }}
                         >
                           Avaliar

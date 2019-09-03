@@ -48,8 +48,8 @@ const AccountDetails = props => {
         noValidate
       >
         <CardHeader
-          subheader="The information can be edited"
-          title="Profile"
+          subheader="Cadastrar a Informação do Professor"
+          title="Cadastro de Professor"
         />
         <Divider />
         <CardContent>

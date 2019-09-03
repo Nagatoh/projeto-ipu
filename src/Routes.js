@@ -15,8 +15,12 @@ import {
   SignUp as SignUpView,
   SignIn as SignInView,
   NotFound as NotFoundView,
-  CadastroProfessor as CadastroProfessorView
+  CadastroProfessor as CadastroProfessorView,
+  CadastroProcedimento as CadastroProcedimentoView,
+  AvaliarProcedimentoAluno as AvaliarProcedimentoAlunoView,
+  ListaAtendimentos as ListaAtendimentosView
 } from './views';
+import { DetalhesProcedimento as DetalhesProcedimentoView } from './views/ListaAtendimentos/components/';
 
 const Routes = () => {
   return (
@@ -39,10 +43,35 @@ const Routes = () => {
         path="/users"
       />
       <RouteWithLayout
+        component={AvaliarProcedimentoAlunoView}
+        exact
+        layout={MainLayout}
+        path="/avaliar-procedimento-aluno"
+      />
+      <RouteWithLayout
+        component={ListaAtendimentosView}
+        exact
+        layout={MainLayout}
+        path="/lista-atendimentos"
+      />
+      <RouteWithLayout
+        component={DetalhesProcedimentoView}
+        exact
+        layout={MainLayout}
+        path="/detalhes-procedimento"
+      />
+
+      <RouteWithLayout
         component={CadastroProfessorView}
         exact
         layout={MainLayout}
         path="/cadastro-professor"
+      />
+      <RouteWithLayout
+        component={CadastroProcedimentoView}
+        exact
+        layout={MainLayout}
+        path="/cadastro-procedimento"
       />
       <RouteWithLayout
         component={ProductListView}
