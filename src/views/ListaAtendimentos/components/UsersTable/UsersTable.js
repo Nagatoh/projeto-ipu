@@ -1,13 +1,22 @@
-import { Button, Card, CardActions, CardContent, Checkbox, Table, TableBody, TableCell, TableHead, TablePagination, TableRow } from '@material-ui/core';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Checkbox,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TablePagination,
+  TableRow
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar';
-
-
-
 
 const useStyles = makeStyles(theme => ({
   root: {},
@@ -84,10 +93,7 @@ const UsersTable = props => {
   };
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
+    <Card {...rest} className={clsx(classes.root, className)}>
       <CardContent className={classes.content}>
         <PerfectScrollbar>
           <div className={classes.inner}>
@@ -118,8 +124,7 @@ const UsersTable = props => {
                     className={classes.tableRow}
                     hover
                     key={user.id}
-                    selected={selectedUsers.indexOf(user.id) !== -1}
-                  >
+                    selected={selectedUsers.indexOf(user.id) !== -1}>
                     <TableCell padding="checkbox">
                       <Checkbox
                         checked={selectedUsers.indexOf(user.id) !== -1}
@@ -131,7 +136,9 @@ const UsersTable = props => {
                     <TableCell>{user.paciente}</TableCell>
                     <TableCell>{user.procedimento}</TableCell>
                     <TableCell>{user.materia}</TableCell>
-                    <TableCell>{moment(user.createdAt).format('DD/MM/YYYY')}</TableCell>
+                    <TableCell>
+                      {moment(user.createdAt).format('DD/MM/YYYY')}
+                    </TableCell>
                     <TableCell>
                       <Button
                         className={classes.ButtonLinkTable}
@@ -139,13 +146,11 @@ const UsersTable = props => {
                         fullWidth
                         size="large"
                         type="submit"
-                        variant="contained"
-                      >
+                        variant="contained">
                         <a
                           href="/detalhes-procedimento"
-                          style={{ color: 'white' }}
-                        >
-                          Avaliar
+                          style={{ color: 'white' }}>
+                          Solicitar Procedimento
                         </a>
                       </Button>
                     </TableCell>

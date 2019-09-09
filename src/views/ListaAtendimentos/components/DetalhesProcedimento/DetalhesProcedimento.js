@@ -48,29 +48,16 @@ const DetalhesProcedimento = props => {
   };
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
-      <form
-        autoComplete="off"
-        noValidate
-      >
+    <Card {...rest} className={clsx(classes.root, className)}>
+      <form autoComplete="off" noValidate>
         <CardHeader
           subheader="Solicitação de um novo procedimento"
           title="Solicitar Novo Procedimento"
         />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={3}
-              xs={3}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={3} xs={3}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do aluno"
@@ -83,11 +70,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Disciplina"
@@ -99,11 +82,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do Paciente"
@@ -116,11 +95,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do professor"
@@ -133,11 +108,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do Procedimento"
@@ -151,11 +122,7 @@ const DetalhesProcedimento = props => {
               />
             </Grid>
 
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o numero do dente"
@@ -168,11 +135,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o Requisito do procedimento"
@@ -191,11 +154,8 @@ const DetalhesProcedimento = props => {
         <Divider />
 
         <CardActions>
-          <Button
-            color="primary"
-            variant="contained"
-          >
-            Finalizar Avaliação
+          <Button color="primary" variant="contained">
+            Finalizar Procedimento
           </Button>
         </CardActions>
       </form>
