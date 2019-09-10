@@ -65,7 +65,7 @@ const Sidebar = props => {
       icon: <PeopleIcon />
     },
     {
-      title: 'Alunos (Professor)',
+      title: 'Avaliar Alunos (Professor)',
       href: '/users',
       icon: <PeopleIcon />
     },

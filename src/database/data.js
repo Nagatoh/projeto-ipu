@@ -11,11 +11,11 @@ export const atendimentos = [
   },
   {
     id: uuid(),
-    disciplina: 'DENTISTICA E PERIO I',
+    disciplina: 'Integrada III',
     paciente: 'Ekaterina Tankova',
-    professorOrientador: 'RODRIGO',
+    professorOrientador: 'Rodrigo',
     procedimento: 'EC/OH/PC',
-    data: 1555016400000
+    data: 1555041700000
   }
 ];
 
