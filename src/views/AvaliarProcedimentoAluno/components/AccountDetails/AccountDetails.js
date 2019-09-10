@@ -50,8 +50,8 @@ const AccountDetails = props => {
     <Card {...rest} className={clsx(classes.root, className)}>
       <form autoComplete="off" noValidate>
         <CardHeader
-          subheader="Avaliar Desempenho do Aluno"
           title="Avaliar Aluno"
+          subheader="Avaliar Desempenho do Aluno"
         />
         <Divider />
         <CardContent>
