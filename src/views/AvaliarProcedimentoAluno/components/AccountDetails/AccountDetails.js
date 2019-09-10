@@ -6,7 +6,6 @@ import {
   CardHeader,
   Divider,
   Grid,
-  MenuItem,
   TextField
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -60,7 +59,7 @@ const AccountDetails = props => {
             <Grid item md={3} xs={3}>
               <TextField
                 fullWidth
-                helperText="Por favor, digite o nome do aluno"
+                disabled
                 label="Nome do Aluno"
                 margin="dense"
                 name="nomeAluno"
@@ -73,6 +72,7 @@ const AccountDetails = props => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
+                disabled
                 label="Disciplina"
                 margin="dense"
                 name="disciplina"
@@ -85,7 +85,7 @@ const AccountDetails = props => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Por favor, digite o nome do Paciente"
+                disabled
                 label="Paciente"
                 margin="dense"
                 name="paciente"
@@ -98,7 +98,7 @@ const AccountDetails = props => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Por favor, digite o nome do professor"
+                disabled
                 label="Professor Orientador"
                 margin="dense"
                 name="professor"
@@ -111,7 +111,7 @@ const AccountDetails = props => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Por favor, digite o nome do Procedimento"
+                disabled
                 label="Procedimento"
                 margin="dense"
                 name="procedimento"
@@ -124,7 +124,7 @@ const AccountDetails = props => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Por favor, digite o numero do dente"
+                disabled
                 label="Dente"
                 margin="dense"
                 name="dente"
