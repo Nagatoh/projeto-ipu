@@ -39,7 +39,7 @@ const AccountDetails = props => {
       <form autoComplete="off" noValidate>
         <CardHeader
           subheader="Cadastrar os critérios e o nome do disciplina"
-          title="Cadastro de Procedimento"
+          title="Cadastro de Disciplina"
         />
         <Divider />
         <CardContent>
@@ -67,7 +67,7 @@ const AccountDetails = props => {
                       <TextField
                         fullWidth
                         helperText="Por favor, digite o nome do critério"
-                        label="Critério"
+                        label="Critério 1"
                         margin="dense"
                         multiline
                         name="critério"
@@ -79,7 +79,7 @@ const AccountDetails = props => {
                       <TextField
                         fullWidth
                         helperText="Por favor, digite o nome do critério"
-                        label="Critério"
+                        label="Critério 2"
                         margin="dense"
                         multiline
                         name="critério"

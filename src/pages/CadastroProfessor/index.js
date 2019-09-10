@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+
 import {
-  Card,
   CardHeader,
   CardContent,
   CardActions,
@@ -13,20 +11,12 @@ import {
   TextField
 } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
-  root: {}
-}));
+import { Container } from './styles';
 
-const AccountDetails = props => {
-  const { className, ...rest } = props;
-
-  const classes = useStyles();
-
+const AccountDetails = () => {
   const [values, setValues] = useState({
     firstName: '',
-    lastName: '',
-    email: '',
-    phone: ''
+    lastName: ''
   });
 
   const handleChange = event => {
@@ -37,11 +27,11 @@ const AccountDetails = props => {
   };
 
   return (
-    <Card {...rest} className={clsx(classes.root, className)}>
+    <Container>
       <form autoComplete="off" noValidate>
         <CardHeader
-          subheader="Cadastrar a Informação do Professor"
           title="Cadastro de Professor"
+          subheader="Cadastrar as informações do Professor"
         />
         <Divider />
         <CardContent>
@@ -59,6 +49,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
+            <Grid item md={6} xs={12} />
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
@@ -71,6 +62,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
+
             <Grid item md={6} xs={12} />
           </Grid>
         </CardContent>
@@ -81,7 +73,7 @@ const AccountDetails = props => {
           </Button>
         </CardActions>
       </form>
-    </Card>
+    </Container>
   );
 };
 
