@@ -18,18 +18,15 @@ import {
   CadastroProfessor as CadastroProfessorView,
   CadastroProcedimento as CadastroProcedimentoView,
   AvaliarProcedimentoAluno as AvaliarProcedimentoAlunoView,
-  ListaAtendimentos as ListaAtendimentosView
+  ListaAtendimentos as ListaAtendimentosView,
+  CadastroDisciplina as CadastroDisciplinaView
 } from './views';
 import { DetalhesProcedimento as DetalhesProcedimentoView } from './views/ListaAtendimentos/components/';
 
 const Routes = () => {
   return (
     <Switch>
-      <Redirect
-        exact
-        from="/"
-        to="/dashboard"
-      />
+      <Redirect exact from="/" to="/dashboard" />
       <RouteWithLayout
         component={DashboardView}
         exact
@@ -42,12 +39,21 @@ const Routes = () => {
         layout={MainLayout}
         path="/users"
       />
+
       <RouteWithLayout
         component={AvaliarProcedimentoAlunoView}
         exact
         layout={MainLayout}
         path="/avaliar-procedimento-aluno"
       />
+
+      <RouteWithLayout
+        component={CadastroDisciplinaView}
+        exact
+        layout={MainLayout}
+        path="/cadastro-disciplina"
+      />
+
       <RouteWithLayout
         component={ListaAtendimentosView}
         exact

@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Profile, SidebarNav, UpgradePlan } from './components';
 
-
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: 240,
@@ -51,19 +50,25 @@ const Sidebar = props => {
       icon: <PeopleIcon />
     },
     {
-      title:'Cadastros de Professor(Admin)',
+      title: 'Cadastro de Professor(Admin)',
       href: '/cadastro-professor',
       icon: <PeopleIcon />
     },
 
     {
-      title:'Cadastros de Procedimento (Admin)',
+      title: 'Cadastro de Disciplinas(Admin)',
+      href: '/cadastro-disciplina',
+      icon: <PeopleIcon />
+    },
+
+    {
+      title: 'Cadastro de Procedimento (Admin)',
       href: '/cadastro-procedimento',
       icon: <PeopleIcon />
     },
 
     {
-      title:'Lista de Procedimentos (Aluno)',
+      title: 'Lista de Procedimentos (Aluno)',
       href: '/lista-atendimentos',
       icon: <PeopleIcon />
     },
@@ -85,26 +90,17 @@ const Sidebar = props => {
     }
   ];
 
-
-
   return (
     <Drawer
       anchor="left"
       classes={{ paper: classes.drawer }}
       onClose={onClose}
       open={open}
-      variant={variant}
-    >
-      <div
-        {...rest}
-        className={clsx(classes.root, className)}
-      >
+      variant={variant}>
+      <div {...rest} className={clsx(classes.root, className)}>
         <Profile />
         <Divider className={classes.divider} />
-        <SidebarNav
-          className={classes.nav}
-          pages={pages}
-        />
+        <SidebarNav className={classes.nav} pages={pages} />
         <UpgradePlan />
       </div>
     </Drawer>

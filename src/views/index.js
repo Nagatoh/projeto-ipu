@@ -10,6 +10,9 @@ export { default as Typography } from './Typography';
 export { default as UserList } from './UserList';
 export { default as CadastroProfessor } from './CadastroProfessor';
 export { default as CadastroProcedimento } from './CadastroProcedimento';
-export {default as AvaliarProcedimentoAluno} from './AvaliarProcedimentoAluno';
-export {default as ListaAtendimentos} from './ListaAtendimentos';
-export {default as SolicitarProcedimento} from './SolicitarProcedimento';
+export { default as CadastroDisciplina } from './CadastroDisciplina';
+export {
+  default as AvaliarProcedimentoAluno
+} from './AvaliarProcedimentoAluno';
+export { default as ListaAtendimentos } from './ListaAtendimentos';
+export { default as SolicitarProcedimento } from './SolicitarProcedimento';
