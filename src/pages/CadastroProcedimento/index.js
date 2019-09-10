@@ -1,9 +1,6 @@
-import React, { useState, Fragment } from 'react';
-import clsx from 'clsx';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
 import {
-  Card,
   CardHeader,
   CardContent,
   CardActions,
@@ -13,15 +10,9 @@ import {
   TextField
 } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
-  root: {}
-}));
+import { Container } from './styles';
 
-const AccountDetails = props => {
-  const { className, ...rest } = props;
-
-  const classes = useStyles();
-
+const AccountDetails = () => {
   const [values, setValues] = useState({
     procedimento: '',
     requisitos: ''
@@ -36,10 +27,7 @@ const AccountDetails = props => {
   /** */
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
+    <Container>
       <form
         autoComplete="off"
         noValidate
@@ -73,42 +61,27 @@ const AccountDetails = props => {
               />
             </Grid>
             <Grid
-              container
               item
-              spacing={3}
+              md={6}
+              xs={12}
+            />
+            <Grid
+              item
+              md={6}
               xs={12}
             >
-              <Fragment>
-                <Grid
-                  item
-                  xs={12}
-                >
-                  <Grid
-                    container
-                    spacing={3}
-                  >
-                    <Grid
-                      item
-                      md={6}
-                      xs={12}
-                    >
-                      <TextField
-                        fullWidth
-                        helperText="Por favor, digite o Requisito do procedimento"
-                        label="Requisitos"
-                        margin="dense"
-                        multiline
-                        name="requisitos"
-                        onChange={handleChange}
-                        required
-                        value={values.requisitos}
-                        variant="outlined"
-                      />
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Fragment>
-
+              <TextField
+                fullWidth
+                helperText="Por favor, digite o nome do Requisitos"
+                label="requisitos"
+                margin="dense"
+                multiline
+                name="requisitos"
+                onChange={handleChange}
+                required
+                value={values.requisitos}
+                variant="outlined"
+              />
             </Grid>
           </Grid>
         </CardContent>
@@ -122,7 +95,7 @@ const AccountDetails = props => {
           </Button>
         </CardActions>
       </form>
-    </Card>
+    </Container>
   );
 };
 

@@ -15,13 +15,15 @@ import {
   SignUp as SignUpView,
   SignIn as SignInView,
   NotFound as NotFoundView,
-  CadastroProfessor as CadastroProfessorView,
-  CadastroProcedimento as CadastroProcedimentoView,
   AvaliarProcedimentoAluno as AvaliarProcedimentoAlunoView,
-  ListaAtendimentos as ListaAtendimentosView,
   CadastroDisciplina as CadastroDisciplinaView
 } from './views';
-import { DetalhesProcedimento as DetalhesProcedimentoView } from './views/ListaAtendimentos/components/';
+
+import CadastroProcedimento from './pages/CadastroProcedimento/index';
+import ListaAtendimento from './pages/ListaAtendimento/index';
+import CadastroRealizacaoProcedimento from './pages/CadastroRealizacaoProcedimento/index';
+import CadastroAluno from './pages/CadastroAluno/index';
+import CadastroProfessor from './pages/CadastroProfessor/index';
 
 const Routes = () => {
   return (
@@ -55,26 +57,33 @@ const Routes = () => {
       />
 
       <RouteWithLayout
-        component={ListaAtendimentosView}
+        component={ListaAtendimento}
         exact
         layout={MainLayout}
         path="/lista-atendimentos"
       />
       <RouteWithLayout
-        component={DetalhesProcedimentoView}
+        component={CadastroRealizacaoProcedimento}
         exact
         layout={MainLayout}
         path="/detalhes-procedimento"
       />
 
       <RouteWithLayout
-        component={CadastroProfessorView}
+        component={CadastroProfessor}
         exact
         layout={MainLayout}
         path="/cadastro-professor"
       />
+
       <RouteWithLayout
-        component={CadastroProcedimentoView}
+        component={CadastroAluno}
+        exact
+        layout={MainLayout}
+        path="/cadastro-aluno"
+      />
+      <RouteWithLayout
+        component={CadastroProcedimento}
         exact
         layout={MainLayout}
         path="/cadastro-procedimento"
