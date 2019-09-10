@@ -3,9 +3,9 @@ import uuid from 'uuid/v1';
 export const atendimentos = [
   {
     id: uuid(),
-    disciplina: 'Dentistica e Perio I',
+    disciplina: 'DENTISTICA E PERIO I',
     paciente: 'Ekaterina Tankova',
-    professorOrientador: 'Rodrigo',
+    professorOrientador: 'RODRIGO',
     procedimento: 'EC/OH/PC',
     data: 1555016400000
   },
