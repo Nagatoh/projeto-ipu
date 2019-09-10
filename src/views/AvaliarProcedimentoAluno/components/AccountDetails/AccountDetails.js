@@ -48,29 +48,16 @@ const AccountDetails = props => {
   };
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
-      <form
-        autoComplete="off"
-        noValidate
-      >
+    <Card {...rest} className={clsx(classes.root, className)}>
+      <form autoComplete="off" noValidate>
         <CardHeader
           subheader="Avaliar Desempenho do Aluno"
           title="Avaliar Aluno"
         />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={3}
-              xs={3}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={3} xs={3}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do aluno"
@@ -83,11 +70,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Disciplina"
@@ -99,11 +82,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do Paciente"
@@ -116,11 +95,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do professor"
@@ -133,11 +108,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do Procedimento"
@@ -150,11 +121,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o numero do dente"
@@ -172,48 +139,8 @@ const AccountDetails = props => {
         <Divider />
 
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={3}
-              xs={3}
-            >
-              <TextField
-                fullWidth
-                inputProps={{
-                  name: 'tipoAvaliacao',
-                  id: 'outlined-age-simple'
-                }}
-                label="Tipo Avaliação"
-                margin="dense"
-                name="tipoAvaliacao"
-                onChange={handleChange}
-                required
-                select
-                value={values.tipoAvaliacao}
-                variant="outlined"
-              >
-                <MenuItem value="">
-                  <em>None</em>
-                </MenuItem>
-                <MenuItem value={10}>'Tipo 1'</MenuItem>
-                <MenuItem value={20}>'Tipo 2'</MenuItem>
-                <MenuItem value={30}>'Tipo 3'</MenuItem>
-              </TextField>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Agilidade"
@@ -225,11 +152,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Materiais usados"
@@ -241,11 +164,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Comportamento"
@@ -257,11 +176,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Dominio"
@@ -278,10 +193,7 @@ const AccountDetails = props => {
         <Divider />
 
         <CardActions>
-          <Button
-            color="primary"
-            variant="contained"
-          >
+          <Button color="primary" variant="contained">
             Finalizar Avaliação
           </Button>
         </CardActions>

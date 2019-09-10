@@ -26,7 +26,7 @@ const AccountDetails = props => {
     firstName: '',
     lastName: '',
     email: '',
-    phone: '',
+    phone: ''
   });
 
   const handleChange = event => {
@@ -36,32 +36,17 @@ const AccountDetails = props => {
     });
   };
 
-
-
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
-      <form
-        autoComplete="off"
-        noValidate
-      >
+    <Card {...rest} className={clsx(classes.root, className)}>
+      <form autoComplete="off" noValidate>
         <CardHeader
           subheader="Cadastrar a Informação do Professor"
           title="Cadastro de Professor"
         />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o primeiro nome"
@@ -74,11 +59,7 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Ultimo Nome"
@@ -90,51 +71,12 @@ const AccountDetails = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Email"
-                margin="dense"
-                name="email"
-                onChange={handleChange}
-                required
-                value={values.email}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
-              <TextField
-                fullWidth
-                label="Telefone"
-                margin="dense"
-                name="phone"
-                onChange={handleChange}
-                type="number"
-                value={values.phone}
-                variant="outlined"
-              />
-            </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            />
+            <Grid item md={6} xs={12} />
           </Grid>
         </CardContent>
         <Divider />
         <CardActions>
-          <Button
-            color="primary"
-            variant="contained"
-          >
+          <Button color="primary" variant="contained">
             Cadastrar Professor
           </Button>
         </CardActions>
