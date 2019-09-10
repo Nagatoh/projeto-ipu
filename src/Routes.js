@@ -15,21 +15,19 @@ import {
   SignUp as SignUpView,
   SignIn as SignInView,
   NotFound as NotFoundView,
-  CadastroProfessor as CadastroProfessorView,
-  CadastroProcedimento as CadastroProcedimentoView,
-  AvaliarProcedimentoAluno as AvaliarProcedimentoAlunoView,
-  ListaAtendimentos as ListaAtendimentosView
+  AvaliarProcedimentoAluno as AvaliarProcedimentoAlunoView
 } from './views';
-import { DetalhesProcedimento as DetalhesProcedimentoView } from './views/ListaAtendimentos/components/';
+
+import CadastroProcedimento from './pages/CadastroProcedimento/index';
+import ListaAtendimento from './pages/ListaAtendimento/index';
+import CadastroRealizacaoProcedimento from './pages/CadastroRealizacaoProcedimento/index';
+import CadastroAluno from './pages/CadastroAluno/index';
+import CadastroProfessor from './pages/CadastroProfessor/index';
 
 const Routes = () => {
   return (
     <Switch>
-      <Redirect
-        exact
-        from="/"
-        to="/dashboard"
-      />
+      <Redirect exact from="/" to="/dashboard" />
       <RouteWithLayout
         component={DashboardView}
         exact
@@ -49,26 +47,33 @@ const Routes = () => {
         path="/avaliar-procedimento-aluno"
       />
       <RouteWithLayout
-        component={ListaAtendimentosView}
+        component={ListaAtendimento}
         exact
         layout={MainLayout}
         path="/lista-atendimentos"
       />
       <RouteWithLayout
-        component={DetalhesProcedimentoView}
+        component={CadastroRealizacaoProcedimento}
         exact
         layout={MainLayout}
         path="/detalhes-procedimento"
       />
 
       <RouteWithLayout
-        component={CadastroProfessorView}
+        component={CadastroAluno}
+        exact
+        layout={MainLayout}
+        path="/cadastro-aluno"
+      />
+
+      <RouteWithLayout
+        component={CadastroProfessor}
         exact
         layout={MainLayout}
         path="/cadastro-professor"
       />
       <RouteWithLayout
-        component={CadastroProcedimentoView}
+        component={CadastroProcedimento}
         exact
         layout={MainLayout}
         path="/cadastro-procedimento"
