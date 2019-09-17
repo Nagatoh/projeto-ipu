@@ -8,7 +8,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     phone: '304-428-3097',
@@ -22,7 +22,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     avatarUrl: '/images/avatars/avatar_4.png',
@@ -36,7 +36,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     phone: '770-635-2682',
@@ -50,7 +50,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     avatarUrl: '/images/avatars/avatar_5.png',
@@ -64,7 +64,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     phone: '972-333-4106',
@@ -78,7 +78,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     phone: '858-602-3409',
@@ -92,7 +92,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     avatarUrl: '/images/avatars/avatar_7.png',
@@ -106,7 +106,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     phone: '702-661-1654',
@@ -120,7 +120,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     avatarUrl: '/images/avatars/avatar_9.png',
@@ -133,7 +133,7 @@ export default [
       country: '',
       state: '',
       city: 'INTEGRADA I',
-      street: '',
+      street: ''
     },
     email: 'II3M',
     phone: '801-301-7894',

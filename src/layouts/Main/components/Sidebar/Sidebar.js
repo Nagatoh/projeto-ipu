@@ -65,6 +65,11 @@ const Sidebar = props => {
       icon: <PeopleIcon />
     },
     {
+      title: 'Lista de Professores (Admin)',
+      href: '/lista-professores',
+      icon: <PeopleIcon />
+    },
+    {
       title: 'Avaliar Alunos (Professor)',
       href: '/users',
       icon: <PeopleIcon />

@@ -110,7 +110,7 @@ export const procedimentos = [
 export const professores = [
   { label: 'Professor', value: 0 },
   { label: 'Josef Stein Butzke', value: 1 },
-  { label: 'Humberto Nagoya', value: 2 },
+  { label: 'Humberto Nagato', value: 2 },
   { label: 'Mateus Pavan', value: 3 },
   { label: 'Isao Moragoto', value: 4 }
 ];

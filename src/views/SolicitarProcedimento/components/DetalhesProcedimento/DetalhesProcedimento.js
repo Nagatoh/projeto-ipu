@@ -1,4 +1,14 @@
-import { Button, Card, CardActions, CardContent, CardHeader, Divider, Grid, MenuItem, TextField } from '@material-ui/core';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Divider,
+  Grid,
+  MenuItem,
+  TextField
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
@@ -24,10 +34,10 @@ const DetalhesProcedimento = props => {
     procedimento: 'EC/OH/PC',
     data: '',
     tipoAvaliacao: '',
-    agilidade:'',
-    materiaisUsados:'',
-    dominio:'',
-    comportamento:''
+    agilidade: '',
+    materiaisUsados: '',
+    dominio: '',
+    comportamento: ''
   });
 
   const handleChange = event => {
@@ -38,29 +48,16 @@ const DetalhesProcedimento = props => {
   };
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
-      <form
-        autoComplete="off"
-        noValidate
-      >
+    <Card {...rest} className={clsx(classes.root, className)}>
+      <form autoComplete="off" noValidate>
         <CardHeader
           subheader="Solicitar Novo Procedimento"
           title="Solicitação de um novo procedimento"
         />
         <Divider />
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={3}
-              xs={3}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={3} xs={3}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do aluno"
@@ -73,11 +70,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Disciplina"
@@ -87,13 +80,10 @@ const DetalhesProcedimento = props => {
                 required
                 value={values.disciplina}
                 variant="outlined"
+                multiple
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do Paciente"
@@ -106,11 +96,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o nome do professor"
@@ -123,11 +109,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 helperText="Por favor, digite o numero do dente"
@@ -145,15 +127,8 @@ const DetalhesProcedimento = props => {
         <Divider />
 
         <CardContent>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={3}
-              xs={3}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={3} xs={3}>
               <TextField
                 fullWidth
                 inputProps={{
@@ -167,8 +142,7 @@ const DetalhesProcedimento = props => {
                 required
                 select
                 value={values.tipoAvaliacao}
-                variant="outlined"
-              >
+                variant="outlined">
                 <MenuItem value="">
                   <em>None</em>
                 </MenuItem>
@@ -178,15 +152,8 @@ const DetalhesProcedimento = props => {
               </TextField>
             </Grid>
           </Grid>
-          <Grid
-            container
-            spacing={3}
-          >
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+          <Grid container spacing={3}>
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Agilidade"
@@ -198,11 +165,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Materiais usados"
@@ -214,11 +177,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Comportamento"
@@ -230,11 +189,7 @@ const DetalhesProcedimento = props => {
                 variant="outlined"
               />
             </Grid>
-            <Grid
-              item
-              md={6}
-              xs={12}
-            >
+            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
                 label="Dominio"
@@ -251,10 +206,7 @@ const DetalhesProcedimento = props => {
         <Divider />
 
         <CardActions>
-          <Button
-            color="primary"
-            variant="contained"
-          >
+          <Button color="primary" variant="contained">
             Finalizar Avaliação
           </Button>
         </CardActions>

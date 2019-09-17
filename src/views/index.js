@@ -13,3 +13,4 @@ export {
   default as AvaliarProcedimentoAluno
 } from './AvaliarProcedimentoAluno';
 export { default as SolicitarProcedimento } from './SolicitarProcedimento';
+export { default as ListaProfessor } from './ListaProfessor';

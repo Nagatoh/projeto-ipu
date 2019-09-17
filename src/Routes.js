@@ -16,7 +16,8 @@ import {
   SignIn as SignInView,
   NotFound as NotFoundView,
   AvaliarProcedimentoAluno as AvaliarProcedimentoAlunoView,
-  CadastroDisciplina as CadastroDisciplinaView
+  CadastroDisciplina as CadastroDisciplinaView,
+  ListaProfessor as ListaProfessorView
 } from './views';
 
 import CadastroProcedimento from './pages/CadastroProcedimento/index';
@@ -62,6 +63,14 @@ const Routes = () => {
         layout={MainLayout}
         path="/lista-atendimentos"
       />
+
+      <RouteWithLayout
+        component={ListaProfessorView}
+        exact
+        layout={MainLayout}
+        path="/lista-professores"
+      />
+
       <RouteWithLayout
         component={CadastroRealizacaoProcedimento}
         exact

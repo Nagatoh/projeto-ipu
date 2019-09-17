@@ -97,10 +97,7 @@ const UsersTable = props => {
   };
 
   return (
-    <Card
-      {...rest}
-      className={clsx(classes.root, className)}
-    >
+    <Card {...rest} className={clsx(classes.root, className)}>
       <CardContent className={classes.content}>
         <PerfectScrollbar>
           <div className={classes.inner}>
@@ -130,8 +127,7 @@ const UsersTable = props => {
                     className={classes.tableRow}
                     hover
                     key={user.id}
-                    selected={selectedUsers.indexOf(user.id) !== -1}
-                  >
+                    selected={selectedUsers.indexOf(user.id) !== -1}>
                     <TableCell padding="checkbox">
                       <Checkbox
                         checked={selectedUsers.indexOf(user.id) !== -1}
@@ -142,19 +138,14 @@ const UsersTable = props => {
                     </TableCell>
                     <TableCell>
                       <div className={classes.nameContainer}>
-                        <Avatar
-                          className={classes.avatar}
-                          src={user.avatarUrl}
-                        >
+                        <Avatar className={classes.avatar} src={user.avatarUrl}>
                           {getInitials(user.name)}
                         </Avatar>
                         <Typography variant="body1">{user.name}</Typography>
                       </div>
                     </TableCell>
                     <TableCell>{user.email}</TableCell>
-                    <TableCell>
-                      {user.address.city}
-                    </TableCell>
+                    <TableCell>{user.address.city}</TableCell>
                     <TableCell>
                       <Button
                         className={classes.ButtonLinkTable}
@@ -162,12 +153,10 @@ const UsersTable = props => {
                         fullWidth
                         size="large"
                         type="submit"
-                        variant="contained"
-                      >
+                        variant="contained">
                         <a
                           href="/avaliar-procedimento-aluno"
-                          style={{ color: 'white' }}
-                        >
+                          style={{ color: 'white' }}>
                           Avaliar
                         </a>
                       </Button>
