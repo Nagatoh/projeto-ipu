@@ -29,7 +29,6 @@ import CadastroProfessor from './pages/CadastroProfessor/index';
 const Routes = () => {
   return (
     <Switch>
-      <Redirect exact from="/" to="/dashboard" />
       <RouteWithLayout
         component={DashboardView}
         exact
@@ -137,7 +136,7 @@ const Routes = () => {
         component={SignInView}
         exact
         layout={MinimalLayout}
-        path="/sign-in"
+        path="/"
       />
       <RouteWithLayout
         component={NotFoundView}

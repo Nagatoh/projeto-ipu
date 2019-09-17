@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import validate from 'validate.js';
 import { makeStyles } from '@material-ui/styles';
 
 import {
@@ -9,27 +8,11 @@ import {
   Button,
   IconButton,
   TextField,
-  Link,
   Typography
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-//import logo from '../../icons/UVV/logouvv.svg';
 
-const schema = {
-  email: {
-    presence: { allowEmpty: false, message: 'Campo Obrigatório' },
-    email: true,
-    length: {
-      maximum: 64
-    }
-  },
-  password: {
-    presence: { allowEmpty: false, message: 'Campo Obrigatório' },
-    length: {
-      maximum: 128
-    }
-  }
-};
+import api from '../../services/api';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -135,44 +118,8 @@ const SignIn = props => {
 
   const classes = useStyles();
 
-  const [formState, setFormState] = useState({
-    isValid: false,
-    values: {},
-    touched: {},
-    errors: {}
-  });
-
-  useEffect(() => {
-    const errors = validate(formState.values, schema);
-
-    setFormState(formState => ({
-      ...formState,
-      isValid: errors ? false : true,
-      errors: errors || {}
-    }));
-  }, [formState.values]);
-
   const handleBack = () => {
     history.goBack();
-  };
-
-  const handleChange = event => {
-    event.persist();
-
-    setFormState(formState => ({
-      ...formState,
-      values: {
-        ...formState.values,
-        [event.target.name]:
-          event.target.type === 'checkbox'
-            ? event.target.checked
-            : event.target.value
-      },
-      touched: {
-        ...formState.touched,
-        [event.target.name]: true
-      }
-    }));
   };
 
   const handleSignIn = event => {
@@ -180,8 +127,10 @@ const SignIn = props => {
     history.push('/');
   };
 
-  const hasError = field =>
-    formState.touched[field] && formState.errors[field] ? true : false;
+  const signin = async () => {
+    const response = await api.get('/');
+    console.log(response.data.message);
+  };
 
   return (
     <div className={classes.root}>
@@ -249,37 +198,25 @@ const SignIn = props => {
                 </Typography>
                 <TextField
                   className={classes.textField}
-                  error={hasError('email')}
                   fullWidth
-                  helperText={
-                    hasError('email') ? 'formState.errors.email[0] ' : null
-                  }
                   label="Matrícula"
                   name="email"
-                  onChange={handleChange}
                   type="text"
-                  value={formState.values.email || ''}
                   variant="outlined"
                 />
                 <TextField
                   className={classes.textField}
-                  error={hasError('password')}
                   fullWidth
-                  helperText={
-                    hasError('password') ? formState.errors.password[0] : null
-                  }
                   label="Senha"
                   name="password"
-                  onChange={handleChange}
                   type="password"
-                  value={formState.values.password || ''}
                   variant="outlined"
                 />
                 <Button
                   className={classes.signInButton}
                   color="primary"
-                  disabled={!formState.isValid}
                   fullWidth
+                  onClick={signin}
                   size="large"
                   type="submit"
                   variant="contained"
@@ -290,14 +227,7 @@ const SignIn = props => {
                   color="textSecondary"
                   variant="body1"
                 >
-                  Don't have an account?{' '}
-                  <Link
-                    component={RouterLink}
-                    to="/sign-up"
-                    variant="h6"
-                  >
-                    Sign up
-                  </Link>
+                  Don't have an account? <Button>Sign up</Button>
                 </Typography>
               </form>
             </div>

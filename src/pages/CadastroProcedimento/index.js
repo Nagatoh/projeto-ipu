@@ -33,7 +33,7 @@ const AccountDetails = () => {
         noValidate
       >
         <CardHeader
-          subheader="Cadastrar Requisitos e o nome do Procedimento"
+          subheader="Cadastrar código e o descrição do Procedimento"
           title="Cadastro de Procedimento"
         />
         <Divider />
@@ -49,11 +49,11 @@ const AccountDetails = () => {
             >
               <TextField
                 fullWidth
-                helperText="Por favor, digite o nome do Procedimento"
-                label="Procedimento"
+                helperText="Por favor, digite o código do Procedimento"
+                label="Código"
                 margin="dense"
                 multiline
-                name="procedimento"
+                name="codigo"
                 onChange={handleChange}
                 required
                 value={values.procedimento}
@@ -72,11 +72,11 @@ const AccountDetails = () => {
             >
               <TextField
                 fullWidth
-                helperText="Por favor, digite o nome do Requisitos"
-                label="requisitos"
+                helperText="Por favor, digite a Descrição"
+                label="Descrição"
                 margin="dense"
                 multiline
-                name="requisitos"
+                name="descricao"
                 onChange={handleChange}
                 required
                 value={values.requisitos}
