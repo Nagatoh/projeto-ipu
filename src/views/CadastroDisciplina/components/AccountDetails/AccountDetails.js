@@ -10,7 +10,12 @@ import {
   Divider,
   Grid,
   Button,
-  TextField
+  TextField,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
 } from '@material-ui/core';
 
 const useStyles = makeStyles(() => ({
@@ -67,24 +72,11 @@ const AccountDetails = props => {
                       <TextField
                         fullWidth
                         helperText="Por favor, digite o nome do critério"
-                        label="Critério 1"
+                        label="Critério"
                         margin="dense"
                         multiline
                         name="critério"
                         onChange={handleChange}
-                        required
-                        value={values.requisitos}
-                        variant="outlined"
-                      />
-                      <TextField
-                        fullWidth
-                        helperText="Por favor, digite o nome do critério"
-                        label="Critério 2"
-                        margin="dense"
-                        multiline
-                        name="critério"
-                        onChange={handleChange}
-                        required
                         value={values.requisitos}
                         variant="outlined"
                       />
@@ -94,6 +86,36 @@ const AccountDetails = props => {
                     </Grid>
                   </Grid>
                 </Grid>
+              </Fragment>
+              <Fragment>
+                <Table>
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>Critério</TableCell>
+                      <TableCell size="small">Ação</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>Critério 1</TableCell>
+                      <TableCell>
+                        <Button
+                          className={classes.ButtonLinkTable}
+                          color="primary"
+                          fullWidth
+                          size="large"
+                          type="submit"
+                          variant="contained">
+                          <a
+                            href="/avaliar-procedimento-aluno"
+                            style={{ color: 'white' }}>
+                            Remover
+                          </a>
+                        </Button>
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
               </Fragment>
             </Grid>
           </Grid>
