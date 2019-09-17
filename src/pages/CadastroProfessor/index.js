@@ -102,8 +102,21 @@ const AccountDetails = () => {
             <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                helperText="Por favor, digite o primeiro nome"
-                label="Primeiro Nome"
+                label="Matrícula"
+                margin="dense"
+                name="matricula"
+                onChange={handleChange}
+                required
+                value={values.matricula}
+                variant="outlined"
+                placeholder="000000000"
+                size="small"
+              />
+            </Grid>
+            <Grid item md={6} xs={12}>
+              <TextField
+                fullWidth
+                label="Nome"
                 margin="dense"
                 name="firstName"
                 onChange={handleChange}
@@ -111,12 +124,9 @@ const AccountDetails = () => {
                 value={values.firstName}
                 variant="outlined"
               />
-            </Grid>
-            <Grid item md={6} xs={12} />
-            <Grid item md={6} xs={12}>
               <TextField
                 fullWidth
-                label="Ultimo Nome"
+                label="Sobrenome"
                 margin="dense"
                 name="lastName"
                 onChange={handleChange}
