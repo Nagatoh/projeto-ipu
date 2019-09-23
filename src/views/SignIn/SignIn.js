@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 
@@ -11,8 +11,6 @@ import {
   Typography
 } from '@material-ui/core';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-
-import api from '../../services/api';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -114,23 +112,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const SignIn = props => {
-  const { history } = props;
-
   const classes = useStyles();
-
-  const handleBack = () => {
-    history.goBack();
-  };
-
-  const handleSignIn = event => {
-    event.preventDefault();
-    history.push('/');
-  };
-
-  const signin = async () => {
-    const response = await api.get('/');
-    console.log(response.data.message);
-  };
 
   return (
     <div className={classes.root}>
@@ -172,15 +154,12 @@ const SignIn = props => {
         >
           <div className={classes.content}>
             <div className={classes.contentHeader}>
-              <IconButton onClick={handleBack}>
+              <IconButton>
                 <ArrowBackIcon />
               </IconButton>
             </div>
             <div className={classes.contentBody}>
-              <form
-                className={classes.form}
-                onSubmit={handleSignIn}
-              >
+              <form className={classes.form}>
                 <div className={classes.logoImage}>
                   {/*  <img src={logo} /> */}
                 </div>
@@ -212,17 +191,18 @@ const SignIn = props => {
                   type="password"
                   variant="outlined"
                 />
-                <Button
-                  className={classes.signInButton}
-                  color="primary"
-                  fullWidth
-                  onClick={signin}
-                  size="large"
-                  type="submit"
-                  variant="contained"
-                >
-                  Entrar
-                </Button>
+                <Link to="/dashboard">
+                  <Button
+                    className={classes.signInButton}
+                    color="primary"
+                    fullWidth
+                    size="large"
+                    type="submit"
+                    variant="contained"
+                  >
+                    Entrar
+                  </Button>
+                </Link>
                 <Typography
                   color="textSecondary"
                   variant="body1"
