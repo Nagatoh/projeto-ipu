@@ -12,6 +12,10 @@ import './assets/scss/index.scss';
 import validators from './common/validators';
 import Routes from './Routes';
 
+import { ToastContainer } from 'react-toastify';
+
+import GlobalStyle from './styles/global';
+
 const browserHistory = createBrowserHistory();
 
 Chart.helpers.extend(Chart.elements.Rectangle.prototype, {
@@ -29,6 +33,8 @@ export default class App extends Component {
       <ThemeProvider theme={theme}>
         <Router history={browserHistory}>
           <Routes />
+          <GlobalStyle />
+          <ToastContainer autoClose={3000} />
         </Router>
       </ThemeProvider>
     );

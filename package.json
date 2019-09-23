@@ -27,9 +27,11 @@
     ]
   },
   "dependencies": {
+    "@khanacademy/react-multi-select": "^0.3.3",
     "@material-ui/core": "^4.2.1",
     "@material-ui/icons": "^4.2.1",
     "@material-ui/styles": "^4.2.1",
+    "@rocketseat/unform": "^1.5.1",
     "axios": "^0.19.0",
     "chart.js": "^2.8.0",
     "clsx": "^1.0.4",
@@ -43,11 +45,13 @@
     "react-perfect-scrollbar": "^1.5.3",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.0.1",
+    "react-toastify": "^5.4.0",
     "recompose": "^0.30.0",
     "styled-components": "4.3.2",
     "underscore": "^1.9.1",
     "uuid": "^3.3.2",
-    "validate.js": "^0.13.1"
+    "validate.js": "^0.13.1",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "eslint": "5.16.0",

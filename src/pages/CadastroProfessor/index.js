@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import {
   CardHeader,
@@ -12,181 +11,207 @@ import {
   Input,
   InputLabel,
   MenuItem,
-  FormControl,
-  Select,
   Chip,
-  makeStyles
+  Select
 } from '@material-ui/core';
 
-import { Container } from './styles';
-import { useTheme } from '@material-ui/styles';
+import { Container, FormController } from './styles';
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-    maxWidth: 300
-  },
-  chips: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  chip: {
-    margin: 2
-  },
-  noLabel: {
-    marginTop: theme.spacing(3)
-  }
-}));
+import * as yup from 'yup';
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium
+import api from '../../services/api';
+import CadastroProfessor from '../../controllers/CadastroProfessor';
+
+import { toast } from 'react-toastify';
+
+const words = /^([A-Z]|[a-z])[a-z]*?$/;
+const number = /^[1-9][0-9]{8}?$/;
+
+const schema = yup.object().shape({
+  matricula: yup
+    .string()
+    .matches(number, 'Matricula invalida')
+    .required('Matricula obrigatorio'),
+  nome: yup
+    .string()
+    .matches(words, 'Nome invalido')
+    .required('Nome obrigatorio'),
+  sobrenome: yup
+    .string()
+    .matches(words, 'Sobrenome invalido')
+    .required('Sobrenome obrigatorio')
+});
+
+class AccountDetails extends Component {
+  state = {
+    matricula: '',
+    nome: '',
+    sobrenome: '',
+    disciplina: [],
+    disciplinas: []
   };
-}
-const names = [
-  'INTEGRADA III',
-  'INTEGRADA INFANTIL I',
-  'INTEGRADA INFANTIL II',
-  'DENT E PERIO I'
-];
 
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
-    }
-  }
-};
+  componentDidMount = async () => {
+    const response = await api.get('/disciplinas');
+    this.setState({ disciplinas: response.data });
+  };
 
-const AccountDetails = () => {
-  const [values, setValues] = useState({
-    firstName: '',
-    lastName: ''
-  });
-  const classes = useStyles();
-  const theme = useTheme();
-  const [personName, setPersonName] = React.useState([]);
-
-  const handleChange = event => {
-    setValues({
-      ...values,
+  handleChange = event => {
+    this.setState({
+      ...this.state,
       [event.target.name]: event.target.value
     });
   };
 
-  function handleChangeSelect(event) {
-    setPersonName(event.target.value);
-  }
+  handleChangeSelect = event => {
+    this.setState({
+      disciplina: event.target.value
+    });
+  };
 
-  return (
-    <Container>
-      <form autoComplete="off" noValidate>
-        <CardHeader
-          title="Cadastro de Professor"
-          subheader="Cadastrar as informações do Professor"
-        />
-        <Divider />
-        <CardContent>
-          <Grid container spacing={3}>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Matrícula"
-                margin="dense"
-                name="matricula"
-                onChange={handleChange}
-                required
-                value={values.matricula}
-                variant="outlined"
-                placeholder="000000000"
-                size="small"
-              />
-            </Grid>
-            <Grid item md={6} xs={12}>
-              <TextField
-                fullWidth
-                label="Nome"
-                margin="dense"
-                name="firstName"
-                onChange={handleChange}
-                required
-                value={values.firstName}
-                variant="outlined"
-              />
-              <TextField
-                fullWidth
-                label="Sobrenome"
-                margin="dense"
-                name="lastName"
-                onChange={handleChange}
-                required
-                value={values.lastName}
-                variant="outlined"
-              />
-            </Grid>
+  handleSubmit = () => {
+    const { matricula, nome, sobrenome, disciplina, disciplinas } = this.state;
 
-            <Grid item md={6} xs={12}>
-              <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="select-multiple-chip">
-                  Disciplinas
-                </InputLabel>
-                <Select
-                  multiple
+    schema
+      .validate({ matricula: matricula, nome: nome, sobrenome: sobrenome })
+      .catch(err => {
+        toast.error(err.errors[0]);
+      });
+
+    CadastroProfessor.store(
+      matricula,
+      nome,
+      sobrenome,
+      disciplina,
+      disciplinas
+    );
+  };
+
+  render() {
+    const { matricula, nome, sobrenome, disciplina, disciplinas } = this.state;
+
+    return (
+      <Container>
+        <form
+          autoComplete="off"
+          noValidate
+        >
+          <CardHeader
+            subheader="Cadastrar as informações do Professor"
+            title="Cadastro de Professor"
+          />
+          <Divider />
+          <CardContent>
+            <Grid
+              container
+              spacing={3}
+            >
+              <Grid
+                item
+                md={6}
+                xs={12}
+              >
+                <TextField
+                  fullWidth
+                  label="Matrícula"
+                  margin="dense"
+                  name="matricula"
+                  onChange={event => this.handleChange(event)}
+                  placeholder="000000000"
+                  required
+                  size="small"
+                  type="number"
+                  value={matricula}
                   variant="outlined"
-                  value={personName}
-                  onChange={handleChangeSelect}
-                  input={<Input id="select-multiple-chip" />}
-                  renderValue={selected => (
-                    <div className={classes.chips}>
-                      {selected.map(value => (
-                        <Chip
-                          key={value}
-                          label={value}
-                          className={classes.chip}
-                        />
-                      ))}
-                    </div>
-                  )}
-                  MenuProps={MenuProps}>
-                  {names.map(name => (
-                    <MenuItem
-                      key={name}
-                      value={name}
-                      style={getStyles(name, personName, theme)}>
-                      {name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+                />
+              </Grid>
+              <Grid
+                item
+                md={6}
+                xs={12}
+              >
+                <TextField
+                  fullWidth
+                  label="Nome"
+                  margin="dense"
+                  name="nome"
+                  onChange={event => this.handleChange(event)}
+                  required
+                  value={nome}
+                  variant="outlined"
+                />
+              </Grid>
+
+              <Grid
+                item
+                md={6}
+                xs={12}
+              >
+                <TextField
+                  fullWidth
+                  label="Sobrenome"
+                  margin="dense"
+                  name="sobrenome"
+                  onChange={event => this.handleChange(event)}
+                  required
+                  value={sobrenome}
+                  variant="outlined"
+                />
+              </Grid>
+
+              <Grid
+                item
+                md={6}
+                xs={12}
+              >
+                <FormController>
+                  <InputLabel htmlFor="select-multiple-chip">
+                    Disciplinas
+                  </InputLabel>
+                  <Select
+                    input={<Input id="select-multiple-chip" />}
+                    multiple
+                    onChange={event => this.handleChangeSelect(event)}
+                    renderValue={disciplina => (
+                      <div>
+                        {disciplina.map(value => (
+                          <Chip
+                            key={value}
+                            label={value}
+                          />
+                        ))}
+                      </div>
+                    )}
+                    value={disciplina}
+                    variant="outlined"
+                  >
+                    {disciplinas.map(disciplina => (
+                      <MenuItem
+                        key={disciplina.nome}
+                        value={disciplina.nome}
+                      >
+                        {disciplina.nome}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormController>
+              </Grid>
             </Grid>
-
-            <Grid item md={6} xs={12} />
-          </Grid>
-        </CardContent>
-        <Divider />
-        <CardActions>
-          <Button color="primary" variant="contained">
-            Cadastrar Professor
-          </Button>
-        </CardActions>
-      </form>
-    </Container>
-  );
-};
-
-AccountDetails.propTypes = {
-  className: PropTypes.string
-};
+          </CardContent>
+          <Divider />
+          <CardActions>
+            <Button
+              color="primary"
+              onClick={() => this.handleSubmit()}
+              variant="contained"
+            >
+              Cadastrar Professor
+            </Button>
+          </CardActions>
+        </form>
+      </Container>
+    );
+  }
+}
 
 export default AccountDetails;
