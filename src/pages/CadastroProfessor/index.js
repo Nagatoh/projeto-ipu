@@ -73,18 +73,18 @@ class AccountDetails extends Component {
     const { matricula, nome, sobrenome, disciplina, disciplinas } = this.state;
 
     schema
-      .validate({ matricula: matricula, nome: nome, sobrenome: sobrenome })
+      .validate({ matricula: matricula, nome: nome, sobrenome: sobrenome }).then(() => {
+        CadastroProfessor.store(
+          matricula,
+          nome,
+          sobrenome,
+          disciplina,
+          disciplinas
+        );
+      } )
       .catch(err => {
         toast.error(err.errors[0]);
       });
-
-    CadastroProfessor.store(
-      matricula,
-      nome,
-      sobrenome,
-      disciplina,
-      disciplinas
-    );
   };
 
   render() {
